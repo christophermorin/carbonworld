@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react"
+import { Button, Box, Container } from "@mui/material";
+import LineChart from "./components/LineChart";
 import jsVectorMap from "jsvectormap";
 import "jsvectormap/dist/maps/world.js";
 import "jsvectormap/dist/css/jsvectormap.css";
 import countryServices from "./services/countryServices";
 
+
+//TODO :: correct the whole namespace once it works
+
 function App() {
   const [regions, setRegions] = useState([])
-
-  console.log(regions)
+  const [chartOpen, setChartOpen] = useState(false)
+  const [coData, setCoData] = useState([])
 
   useEffect(() => {
     const map = new jsVectorMap({
@@ -18,27 +23,59 @@ function App() {
         selectedHover: { fill: 'purple' }
       },
       onRegionSelected: function (index, isSelected, selectedRegions) {
-        setRegions(prevState => [...prevState, `'${(map.mapData.paths[index].name)}'`])
+        setRegions((prevState) => {
+          if (!prevState.includes(`'${(map.mapData.paths[index].name)}'`) && isSelected) {
+            return (
+              [
+                ...prevState,
+                `'${(map.mapData.paths[index].name)}'`
+              ]
+            )
+          }
+          else if (!isSelected) {
+            return prevState.filter(country => country !== `'${(map.mapData.paths[index].name)}'`)
+          }
+        })
       },
     });
   }, [])
 
+  //TODO: rename this, button for querying the database
   const handleClick = async () => {
     const results = await countryServices.getCountryData(regions)
+    if (results) {
+      setChartOpen(true)
+      setCoData(results)
+    }
   }
 
+  const handleDialogClose = () => {
+    setChartOpen(false)
+  }
+  console.log(regions)
   return (
-    <>
-      <button onClick={handleClick}>Click Me</button>
-      <div id="map" style={styles}>
-      </div>
-    </>
+    <Container>
+      <Box
+        id="map"
+      />
+      <Button
+        variant="contained"
+        onClick={handleClick}
+      >
+        Click Me
+      </Button>
+      <LineChart
+        chartOpen={chartOpen}
+        chartClosed={handleDialogClose}
+        coData={coData}
+      />
+    </Container>
   )
 }
 
 const styles = {
-  width: '100%',
-  height: '100vh'
+  // width: '100%',
+  // height: ''
 }
 
 
