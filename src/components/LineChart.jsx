@@ -48,6 +48,16 @@ export default function LineChart({ chartOpen, chartClosed, coData }) {
     return Array.from(values)
   }
 
+  const randomColors = () => {
+    let colorString = []
+    for (let i = 0; i < 3; i++) {
+      colorString.push(Math.floor(Math.random(1) * 255))
+    }
+    console.log(colorString)
+    return `rgba(${colorString.join(',')})`
+
+  }
+
 
   const buildDataSet = () => {
     const countryCount = getCountryNames()
@@ -57,7 +67,7 @@ export default function LineChart({ chartOpen, chartClosed, coData }) {
         label: country,
         data: coValues(country),
         fill: false,
-        borderColor: 'rgb(75, 192, 192)',
+        borderColor: randomColors(),
         tension: 0.1,
       })
     })
@@ -73,6 +83,11 @@ export default function LineChart({ chartOpen, chartClosed, coData }) {
     datasets: buildDataSet(),
   };
 
+  const options = {
+    indexAxis: 'x',
+    responsive: true,
+    maintainAspectRatio: true,
+  }
 
 
 
@@ -80,13 +95,21 @@ export default function LineChart({ chartOpen, chartClosed, coData }) {
     <Dialog
       open={chartOpen}
       onClose={chartClosed}
-      sx={{ maxWidth: 'unset' }}
+      fullWidth
+      sx={{
+        '.MuiDialog-paper': {
+          maxWidth: 'unset'
+        }
+      }}
     >
       <Box
         width={'100%'}
       >
         <DialogTitle>Carbon Emissions</DialogTitle>
-        <Line data={data} />
+        <Line
+          data={data}
+          options={options}
+        />
       </Box>
     </Dialog >
   )
