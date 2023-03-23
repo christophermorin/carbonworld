@@ -196,7 +196,7 @@ Project Link: [https://github.com/christophermorin/carbonworld](https://github.c
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* CO2 emission csv data shared by Ulrik Thyge Pedersen @ (https://www.kaggle.com/datasets/ulrikthygepedersen/co2-emissions-by-country?resource=download)
+* CO2 emission csv data shared by Ulrik Thyge Pedersen @ [Kaggle](https://www.kaggle.com/datasets/ulrikthygepedersen/co2-emissions-by-country?resource=download)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
