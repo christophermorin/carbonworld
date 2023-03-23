@@ -37,7 +37,6 @@ app.use(
 async function getCountryData(input) {
   try {
     const res = await client.query(input)
-    // console.log(res.rows)
     return res.rows
   } catch (error) {
     console.log('here in errro')
@@ -53,16 +52,12 @@ app.post('/api/getData', async (req, res) => {
       multipleQueries += `OR country_name LIKE '${country}' `
   })
 
-  const query = `
+  let query = `
   SELECT country_name, year, value
   FROM countries
   WHERE country_name LIKE '${firstQuery}'
-  AND year > 2000
   ${multipleQueries}
-  AND year > 2000
   `;
-
-  console.log(query)
   const finalData = await getCountryData(query);
   if (typeof finalData === String) {
     await client.end();
@@ -73,14 +68,3 @@ app.post('/api/getData', async (req, res) => {
 })
 
 module.exports = app
-
-
-
-
-// const query = `
-// SELECT country_name, year, value
-// FROM countries
-// WHERE country_name IN ('Aruba')
-// AND
-// year > 2000
-// `;

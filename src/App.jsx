@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react"
-import { Button, Box, Container, Typography } from "@mui/material";
-import LineChart from "./components/LineChart";
+import { Box, Container } from "@mui/material";
 import jsVectorMap from "jsvectormap";
+import Header from "./components/Header/Header";
+import Steps from "./components/Instruct/Steps";
+import SubmitButton from "./components/Submit/SubmitButton";
+import LineChart from "./components/LineChart/LineChart";
+import Footer from "./components/Footer/Footer";
 import "jsvectormap/dist/maps/world.js";
 import "jsvectormap/dist/css/jsvectormap.css";
 import countryServices from "./services/countryServices";
-
-
-//TODO :: correct the whole namespace once it works
 
 function App() {
   const [regions, setRegions] = useState([])
@@ -19,8 +20,7 @@ function App() {
       selector: "#map",
       regionsSelectable: true,
       regionStyle: {
-        selected: { fill: 'red' },
-        selectedHover: { fill: 'purple' }
+        selected: { fill: 'rgba(32,190,190,1)' },
       },
       onRegionSelected: function (index, isSelected, selectedRegions) {
         setRegions((prevState) => {
@@ -40,8 +40,7 @@ function App() {
     });
   }, [])
 
-  //TODO: rename this, button for querying the database
-  const handleClick = async () => {
+  const handleSubmit = async () => {
     const results = await countryServices.getCountryData(regions)
     if (results) {
       setChartOpen(true)
@@ -52,7 +51,7 @@ function App() {
   const handleDialogClose = () => {
     setChartOpen(false)
   }
-  console.log(regions)
+
   return (
     <Container
       sx={{
@@ -63,26 +62,12 @@ function App() {
         height: '90vh'
       }}
     >
-      <Typography
-        variant="h4"
-        textAlign="center"
-        color="rgba(255,255,255,1)"
-        sx={{
-          background: 'rgba(32,32,34,1)'
-
-        }}
-      >
-        Carbon World
-      </Typography>
-      <ul style={{ color: 'rgba(255,255,255,1)' }}>
-        <li>Scroll to Zoom</li>
-        <li>Hold to drag</li>
-        <li>Select a region</li>
-        <li>Click button for results</li>
-      </ul>
+      <Header />
+      <Steps />
+      <SubmitButton handleSubmit={handleSubmit} />
       <Box
-        style={{ border: '2px solid rgba(32,32,34,1)' }}
         id="map"
+        border="2px solid rgba(32,32,34,1)"
         boxShadow="0 0 10px 2px rgba(32,32,34,1)"
       />
       <LineChart
@@ -90,30 +75,9 @@ function App() {
         chartClosed={handleDialogClose}
         coData={coData}
       />
-      <Box
-        display={'flex'}
-        justifyContent="center"
-      >
-        <Button
-          variant="contained"
-          onClick={handleClick}
-          sx={{
-            background: 'rgba(32,32,34,1)'
-          }}
-        >
-          Click Me
-        </Button>
-
-      </Box>
+      <Footer />
     </Container>
   )
 }
-
-const styles = {
-  // width: '100%',
-  // height: ''
-}
-
-
 
 export default App
