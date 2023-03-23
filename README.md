@@ -84,8 +84,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Protos Screenshot][product-screenshot]](https://protos.cyclic.app)
-
 An interactive world map that returns any countries CO2 emissions spanning from 1960 to 2019 as an easy to read line chart.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
