@@ -43,7 +43,7 @@
     <a href="https://github.com/christophermorin/carbonworld"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <!-- <a href="https://protos.cyclic.app/">View Demo</a> -->
+    <a href="https://carbonworld.vercel.app/">View Demo</a>
     ·
     <a href="https://github.com/christophermorin/carbonworld/issues">Report Bug</a>
     ·
@@ -83,6 +83,8 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+
+[![Protos Screenshot][product-screenshot]](https://carbonworld.vercel.app/)
 
 An interactive world map that returns any countries CO2 emissions spanning from 1960 to 2019 as an easy to read line chart.
 
@@ -215,7 +217,7 @@ Project Link: [https://github.com/christophermorin/carbonworld](https://github.c
 [license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: https://github.com/christophermorin/assets/blob/de52817c8314cfe848df50d463b120858e8d7a12/protos_demo_v2.png
+[product-screenshot]: https://github.com/christophermorin/assets/blob/ed97653a5c7f21df07f6708b56f82ca842ee05aa/carbonworld.png
 [Node.js]: https://img.shields.io/badge/node.js-182446?style=for-the-badge&logo=nodedotjs&logoColor=green
 [Node-url]: https://nodejs.org/en/
 [PostGresql]: https://img.shields.io/badge/-Postgres-black.svg?style=for-the-badge&logo=postgresql&colorB=333
