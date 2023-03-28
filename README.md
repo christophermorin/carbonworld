@@ -144,7 +144,7 @@ Making use of CO2 emission data within an Postgresql database, select any countr
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Bring in Supabase
+- [x] Bring in Supabase
 - [ ] Expand the query options to specific years
 
 See the [open issues](https://github.com/christophermorin/protos_V0/issues) for a full list of proposed features (and known issues).
