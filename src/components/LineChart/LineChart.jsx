@@ -10,7 +10,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import creatingCoDataCharts from '../../services/countryData';
+import creatingCoDataCharts from '../../utils/countryData';
 
 export default function LineChart({ chartOpen, chartClosed, coData }) {
   console.log(coData)

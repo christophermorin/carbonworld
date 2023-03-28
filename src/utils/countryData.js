@@ -11,7 +11,7 @@ export default function creatingCoDataCharts(coData) {
     const countryValues = []
     for (let entry of coData) {
       if (entry.country_name === country) {
-        countryValues.push(entry.value)
+        countryValues.push(Math.floor(entry.value))
       }
     }
     return countryValues
