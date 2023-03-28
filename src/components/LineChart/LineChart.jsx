@@ -13,7 +13,6 @@ import { Line } from 'react-chartjs-2';
 import creatingCoDataCharts from '../../utils/countryData';
 
 export default function LineChart({ chartOpen, chartClosed, coData }) {
-  console.log(coData)
   ChartJS.register(
     CategoryScale,
     LinearScale,
