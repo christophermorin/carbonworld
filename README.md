@@ -92,8 +92,7 @@ An interactive world map that returns any countries CO2 emissions spanning from 
 
 ### Built With
 
-* [![NodeJS][Node.js]][Node-url]
-* [![ExpressJS][Express.js]][Express-url]
+* [![SupaBase][Supabase]][Supabase-url]
 * [![PostgreSQL][Postgresql]][Postgresql-url]
 * [![React][React.js]][React-url]
 * [![Vite][Vite.js]][Vite-url]
@@ -229,6 +228,6 @@ Project Link: [https://github.com/christophermorin/carbonworld](https://github.c
 [MaterialUi-url]: https://mui.com/material-ui/
 [Vite.js]: https://img.shields.io/badge/vite.js-454ce1?style=for-the-badge&logo=vite&logoColor=blue
 [Vite-url]: https://vitejs.dev/
-[Express.js]: https://img.shields.io/badge/express.js-bdb9b9?style=for-the-badge&logo=express&logoColor=white
-[Express-url]: https://expressjs.com/
+[Supabase]: https://img.shields.io/badge/supabase-33cc87?style=for-the-badge&logo=supabase&logoColor=green
+[Supabase-url]: https://supabase.com/
 
