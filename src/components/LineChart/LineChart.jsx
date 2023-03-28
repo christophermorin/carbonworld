@@ -13,6 +13,7 @@ import { Line } from 'react-chartjs-2';
 import creatingCoDataCharts from '../../services/countryData';
 
 export default function LineChart({ chartOpen, chartClosed, coData }) {
+  console.log(coData)
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -42,6 +43,11 @@ export default function LineChart({ chartOpen, chartClosed, coData }) {
     responsive: true,
     scales: {
       x: {
+        title: {
+          display: true,
+          text: 'Year',
+          color: 'rgba(255,255,255,1)'
+        },
         ticks: {
           color: 'rgba(32,190,190,1)',
         },
@@ -51,6 +57,11 @@ export default function LineChart({ chartOpen, chartClosed, coData }) {
         },
       },
       y: {
+        title: {
+          display: true,
+          text: 'Emissions in kiloton',
+          color: 'rgba(255,255,255,1)'
+        },
         ticks: {
           color: 'rgba(32,190,190,1)',
         },
@@ -88,12 +99,12 @@ export default function LineChart({ chartOpen, chartClosed, coData }) {
       fullWidth
       sx={{
         '.MuiDialog-paper': {
-          maxWidth: 'unset'
+          maxWidth: 'unset',
+          width: { md: '75%' }
         },
       }}
     >
       <Box
-        width={'100%'}
         sx={{
           background: 'rgba(32,32,34,1)'
         }}
